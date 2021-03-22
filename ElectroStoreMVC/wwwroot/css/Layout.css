@@ -1,0 +1,61 @@
+﻿#layout_renderBody_id {
+    position:relative;
+    margin-top: 5%;
+}
+
+#navbarsExampleDefault{
+    margin-left:28%;
+}
+
+.wrap {
+    position: relative;
+    margin-left: 4%;
+    transform: translate(-50%, -0%);
+    width: 0px;
+    height: 50px;
+    background: #31373e;
+    line-height: 55px;
+    padding-right: 55px;
+    transition: all 0.5s ease;
+}
+
+.input {
+    border: 0;
+    background: transparent;
+    width: 0%;
+    outline: none;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #fff;
+    font-style: italic;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.wrap .fa {
+    color: #fff;
+    position: absolute;
+    right: 17px;
+    top: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.wrap.active {
+    background: #31373e;
+    width: 65%;
+    padding-left: 25px;
+    transition: all 1.5s ease;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.input.active {
+    width: 98%;
+    padding-left: 5px;
+    transition: all 0.5s 0.8s ease;
+}
+
+input::placeholder {
+    color: #fff;
+}

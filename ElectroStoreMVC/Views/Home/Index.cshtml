@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ElectroStoreMVC.Models.User>
+@{
+    ViewData["Title"] = "LLL";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Пользователи</title>
+</head>
+<body>
+    <h3>Пользователи</h3>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Login</td>
+            <td>FullName</td>
+            <td></td>
+        </tr>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserId</td>
+                <td>@user.Login</td>
+                <td>@user.FullName</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

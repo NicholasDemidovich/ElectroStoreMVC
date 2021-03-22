@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ElectroStoreMVC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/Layout.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</head>
+<body>
+    <nav style="background-color:#31373e" class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a id="navbarId" class="navbar-brand" href="#">D&L Store</a>
+            <button id="buttonListId" class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span id="spanListId" class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul id="ulListId" class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li id="mainLi" class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Главная</a>
+                    </li>
+                    <li id="li2" class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Каталог</a>
+                    </li>
+                    <li id="li3" class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Контакты</a>
+                    </li>
+                    <li id="li4" class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Авторизация</a>
+                    </li>
+                    <li id="liBag" class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Корзина</a>
+                    </li>
+                </ul>
+                <div id="searchId" class="wrap">
+                    <form>
+                        <input type="text" class="input" placeholder="Поиск">
+                    </form>
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <div id="layout_renderBody_id" class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+
+    <footer class="container">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p>© 2017–2021 Company, ElectroStore Inc.</p>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js'></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/Layout.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
