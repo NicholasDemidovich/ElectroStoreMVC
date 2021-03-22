@@ -1,6 +1,6 @@
 ﻿#layout_renderBody_id {
     position:relative;
-    margin-top: 5%;
+    margin-top: 60px;
 }
 
 #navbarsExampleDefault{
@@ -13,7 +13,7 @@
     transform: translate(-50%, -0%);
     width: 0px;
     height: 50px;
-    background: #31373e;
+    background: #212529;
     line-height: 55px;
     padding-right: 55px;
     transition: all 0.5s ease;
@@ -42,7 +42,7 @@
 }
 
 .wrap.active {
-    background: #31373e;
+    background: #212529;
     width: 65%;
     padding-left: 25px;
     transition: all 1.5s ease;
