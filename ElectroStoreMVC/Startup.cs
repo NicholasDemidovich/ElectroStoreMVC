@@ -44,6 +44,12 @@ namespace ElectroStoreMVC
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "orderList",
+                    pattern: "{controller=AllProducts}/{action=AllProducts}");
+            });
         }
     }
 }
