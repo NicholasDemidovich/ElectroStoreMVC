@@ -17,5 +17,10 @@ namespace ElectroStoreMVC.Models
             Database.EnsureCreated();
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>().Property(p => p.IsDeleted).HasDefaultValue(0);
+        }
+
     }
 }

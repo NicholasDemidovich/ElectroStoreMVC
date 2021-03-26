@@ -41,7 +41,7 @@ namespace ElectroStoreMVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}");
             });
 
             app.UseEndpoints(endpoints =>
@@ -49,6 +49,20 @@ namespace ElectroStoreMVC
                 endpoints.MapControllerRoute(
                     name: "orderList",
                     pattern: "{controller=AllProducts}/{action=AllProducts}");
+            });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "orderListAdmin",
+                    pattern: "{controller=Admin}/{action=AllProducts}");
+            });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "addProduct",
+                    pattern: "{controller=Admin}/{action=AddProduct}");
             });
         }
     }

@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "D&L, Добавление продукта - Admin";
+}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container">
+        <main>
+            <div class="py-5 text-center">
+                <h2>Добавление товара</h2>
+            </div>
+            <div class="row g-5">
+                
+                <div >
+                    <form method="post" data-ajax="true" data-ajax-success="ajaxSuccessFunc" class="needs-validation" role="form">
+                        <div class="row g-3">
+
+                            <div class="col-sm-6">
+                                <label for="ProductName" class="form-label">Название продукта</label>
+                                <input name="ProductName" type="text" class="form-control" placeholder="Название" value="" required>
+                                <div class="invalid-feedback">
+                                    Данное поле обязательное для заполнения.
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="ProductType" class="form-label">Тип продукта</label>
+                                <input name="ProductType" type="text" class="form-control" placeholder="Тип" value="" required>
+                                <div class="invalid-feedback">
+                                    Данное поле обязательное для заполнения.
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="ProductImage" class="form-label">Ссылка на изображение</label>
+                                <input name="ProductImage" type="text" class="form-control" placeholder="Ссылка" value="" required>
+                                <div class="invalid-feedback">
+                                    Данное поле обязательное для заполнения.
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="ProductCount" class="form-label">Количество продукта</label>
+                                <input name="ProductCount" type="text" class="form-control" placeholder="Количество" required>
+                                <div class="invalid-feedback">
+                                    Данное поле обязательное для заполнения.
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="ProductPrice" class="form-label">Цена продукта</label>
+                                <input name="ProductPrice" type="text" class="form-control" placeholder="Цена" required>
+                                <div class="invalid-feedback">
+                                    Данное поле обязательное для заполнения.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="ProductDescription" class="form-label">Описание продукта</label>
+                                <input name="ProductDescription" type="text" class="form-control" placeholder="Описание" required>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <div>
+                            <button class="w-100 btn btn-primary btn-lg" type="submit">Добавить продукт в базу данных</button>
+                            <div id="alertinfo" class="alert-info" style="text-align:center;height:5%;font-size:14pt;" role="alert">
+                                
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    @section scripts { 
+        <script>
+            function ajaxSuccessFunc() {
+                $("div#alertinfo").text("Добавление выполнено успешно.");
+                $(".form-control").val('');
+                $("div#alertinfo").delay(2200).hide(3000);
+            }
+        </script>
+    }
+</body>
+</html>

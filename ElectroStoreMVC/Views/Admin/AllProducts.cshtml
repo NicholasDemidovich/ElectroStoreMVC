@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "D&L, Все продукты - Admin";
+}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+</head>
+<body>
+    <main>
+
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">Лучшие товары для вас</h1>
+                    <p class="lead text-muted">
+                          Лучшие цены на самые популярные бренды бытовой техники и смартфонов.
+                          Сотруднчивество с мировыми брендами, такими как LG, Apple, Samsung.
+                    </p>
+                    <p>
+                        <a href="~/Admin/AddProduct" class="btn btn-primary my-2">Добавить товар</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="album py-5 bg-light">
+                    <div class="container">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                            @{
+                                foreach (var product in Model)
+                                {
+                                    <div class="col">
+                                        <div class="card shadow-sm">
+                                            <img class="img-thumbnail" src="@product.ProductImage" alt="@product.ProductName">
+                                            <div class="card-body">
+                                                <h2>@product.ProductName</h2>
+                                                <p class="card-text">@product.ProductDescription</p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                                    </div>
+                                                    <small class="text-muted">@product.ProductPrice.ToString("c")</small>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>
