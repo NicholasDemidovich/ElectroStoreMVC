@@ -1,10 +1,20 @@
 ﻿#layout_renderBody_id {
     position:relative;
-    margin-top: 60px;
+    margin-top: 100px;
 }
 
 #navbarsExampleDefault{
     margin-left:25%;
+}
+
+#exitBtn {
+    border: none;
+    background: #212529;
+}
+
+#exitBtn:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
 }
 
 .wrap {
@@ -59,4 +69,8 @@
 
 input::placeholder {
     color: #fff;
+}
+
+#dropdown05:hover{
+    cursor:pointer;
 }

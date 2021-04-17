@@ -1,0 +1,7 @@
+﻿#successLink {
+    text-decoration: none;
+}
+
+#successLink:hover {
+    text-decoration: underline;
+}

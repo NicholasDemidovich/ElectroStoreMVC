@@ -22,7 +22,9 @@
             <div class="row g-5">
                 
                 <div >
-                    <form method="post" data-ajax="true" data-ajax-success="ajaxSuccessFunc" class="needs-validation" role="form">
+                    <form id="submitForm" onsubmit="return valid();" method="post" data-ajax="true" 
+                          data-ajax-success="ajaxSuccessFunc" data-ajax-failure="ajaxFailureFunc"
+                          class="needs-validation" role="form">
                         <div class="row g-3">
 
                             <div class="col-sm-6">
@@ -51,7 +53,7 @@
 
                             <div class="col-md-3">
                                 <label for="ProductCount" class="form-label">Количество продукта</label>
-                                <input name="ProductCount" type="text" class="form-control" placeholder="Количество" required>
+                                <input id="productCountId" name="ProductCount" type="text" class="form-control" placeholder="Количество" required>
                                 <div class="invalid-feedback">
                                     Данное поле обязательное для заполнения.
                                 </div>
@@ -59,7 +61,7 @@
 
                             <div class="col-md-3">
                                 <label for="ProductPrice" class="form-label">Цена продукта</label>
-                                <input name="ProductPrice" type="text" class="form-control" placeholder="Цена" required>
+                                <input id="productPriceId" name="ProductPrice" type="text" class="form-control" placeholder="Цена" required>
                                 <div class="invalid-feedback">
                                     Данное поле обязательное для заполнения.
                                 </div>
@@ -74,9 +76,10 @@
                         <hr class="my-4">
 
                         <div>
-                            <button class="w-100 btn btn-primary btn-lg" type="submit">Добавить продукт в базу данных</button>
-                            <div id="alertinfo" class="alert-info" style="text-align:center;height:5%;font-size:14pt;" role="alert">
-                                
+                            <button id="submitBtn" class="w-100 btn btn-primary btn-lg" type="submit">Добавить продукт в базу данных</button>
+                            <div id="alertinfo" alert-hide="true" class="alert-info" style="text-align:center;height:5%;font-size:14pt;" role="alert">
+                            </div>
+                            <div id="alertinfoFail" alert-hide="false" class="alert-warning" style="text-align:center;height:5%;font-size:14pt;" role="alert">
                             </div>
                         </div>
 
@@ -87,10 +90,34 @@
     </div>
     @section scripts { 
         <script>
+            function valid() {
+                if (isNaN(parseInt(document.getElementById('productCountId').value))) {
+                    alert("Введите в поле количество число!");
+                    $("#submitForm").attr('data-ajax', 'false');
+
+                    return false;
+                }
+                if (isNaN(parseFloat(document.getElementById('productPriceId').value))) {
+                    alert("Введите в поле цена число!");
+                    $("#submitForm").attr('data-ajax', 'false');
+
+                    return false;
+                }
+                $("#submitForm").attr('data-ajax', 'true');
+                return true;
+            };
+
             function ajaxSuccessFunc() {
-                $("div#alertinfo").text("Добавление выполнено успешно.");
+                    $("div#alertinfo").delay(200).show(2000);
+                    $("div#alertinfo").text("Добавление выполнено успешно.");
+                    $(".form-control").val('');
+                    $("div#alertinfo").delay(2200).hide(3000);
+            }
+            function ajaxFailureFunc() {
+                $("div#alertinfoFail").delay(1200).show(2000);
+                $("div#alertinfoFail").text("Добавление не выполнено.");
                 $(".form-control").val('');
-                $("div#alertinfo").delay(2200).hide(3000);
+                $("div#alertinfoFail").delay(2200).hide(3000);
             }
         </script>
     }

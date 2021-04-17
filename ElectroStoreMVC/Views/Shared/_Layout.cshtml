@@ -19,13 +19,13 @@
                 <span id="spanListId" class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">                                  
                 <ul id="ulListId" class="navbar-nav me-auto mb-2 mb-md-0">
                     <li id="mainLi" class="nav-item">
                         <a class="nav-link" aria-current="page" href="~/Home/Index">Главная</a>
                     </li>
                     <li id="li2" class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Каталог</a>
+                        <a class="nav-link dropdown-toggle" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Каталог</a>
                         <ul id="ulDropdownMenuId" class="dropdown-menu" aria-labelledby="dropdown05">
                             <li><a class="dropdown-item" href="~/AllProducts/AllProducts">Все товары</a></li>
                             <li><a class="dropdown-item" href="#">ТВ, Видео</a></li>
@@ -37,16 +37,31 @@
                     <li id="li3" class="nav-item">
                         <a class="nav-link" aria-current="page" href="#">Контакты</a>
                     </li>
-                    <li id="li4" class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Авторизация</a>
-                    </li>
                     <li id="liBag" class="nav-item">
                         <a class="nav-link" aria-current="page" href="#">Корзина</a>
                     </li>
-                    <li id="liBag" class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Кабинет</a>
-                    </li>
-                </ul>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a class="nav-link" aria-current="page" href="#">@User.Identity.Name</a>
+                        </li>
+                        <li>
+                            <form method="post" asp-controller="Account" asp-action="Logout">
+                                <input id="exitBtn" class="nav-link" aria-current="page" type="submit" value="Выход" />
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                        <a class="nav-link" aria-current="page" asp-controller="Account" asp-action="Login">Вход</a>
+                        </li>
+                        <li>
+                        <a class="nav-link" aria-current="page" asp-controller="Account" asp-action="Register">Регистрация</a>
+                        </li>
+                    }
+                </ul>             
+                
                 <div id="searchId" class="wrap">
                     <form>
                         <input type="text" class="input" placeholder="Поиск">
