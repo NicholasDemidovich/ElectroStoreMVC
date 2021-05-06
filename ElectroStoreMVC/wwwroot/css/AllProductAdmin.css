@@ -1,0 +1,86 @@
+﻿#pagesDivId {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#imgDelete:hover {
+    color: red;
+}
+
+#pages:hover {
+    cursor: pointer;
+}
+
+#pagesPrevDivId {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+}
+
+#pagesPrev:hover {
+    cursor: pointer;
+}
+
+#pagesNextDivId {
+    position: absolute;
+    top: 50%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+}
+
+#pagesNext:hover {
+    cursor: pointer;
+}
+
+#ulDropdownMenuIdPages {
+    max-height: 120px;
+    overflow-y: scroll
+}
+
+    #ulDropdownMenuIdPages li {
+        height: 30px;
+        line-height: 30px;
+    }
+
+.bottomPage {
+    margin-bottom: 15%;
+}
+
+
+.header {
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0s;
+}
+
+    .header._active {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+
+.underHeader {
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0s;
+}
+
+    .underHeader._active {
+        transform: translate(0px, 0px);
+        opacity: 1;
+        transition: all 0.8s ease 0.4s;
+    }
+
+._anim-show {
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0.4s;
+}
+
+    ._anim-show._active,
+    ._active ._anim-show {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }

@@ -10,7 +10,7 @@ namespace ElectroStoreMVC.Models
         public int UserReviewId { get; set; }
         public string UserReviewContext { get; set; }
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public User User { get; set; }
         
     }

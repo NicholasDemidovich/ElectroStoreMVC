@@ -1,56 +1,65 @@
 ﻿@model ElectroStoreMVC.ViewModels.RegisterViewModel
-    <style>
-        #inp {
-            margin-left: auto;
-            margin-right: auto;
-            width: 50%;
-        }
-        li {
-            list-style-type: none;
-        }
-    </style>
+<style>
+    #inp {
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
 
-    <body class="text-center">
+    li {
+        list-style-type: none;
+    }
+</style>
+<html lang="en">
+<head>
+    <link href="~/css/Registration.css" rel="stylesheet">
+</head>
+<body>
+    <div class="text-center">
 
-        <h1 class="h3 mb-3 fw-normal">Регистрация нового пользователя</h1>
+        <h1 class="h3 mb-3 fw-normal header _anim-items">Регистрация нового пользователя</h1>
 
         <form method="post" asp-controller="Account" asp-action="Register">
             <div asp-validation-summary="ModelOnly"></div>
-            <div id="inp" style="margin-top:20px;" class="form-floating">
+            <div id="inp" style="margin-top:20px;" class="form-floating email _anim-items">
                 <input asp-for="Email" class="form-control" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput" asp-for="Email">Email адрес</label>
                 <span asp-validation-for="Email"></span>
             </div>
-            <div id="inp" style="margin-top:20px;" class="form-floating">
+            <div id="inp" style="margin-top:20px;" class="form-floating userName _anim-items">
                 <input asp-for="UserName" class="form-control" id="floatingInput" placeholder="UserName">
                 <label for="floatingInput" asp-for="UserName">Имя пользователя</label>
                 <span asp-validation-for="UserName"></span>
             </div>
-            <div id="inp" style="margin-top:20px;" class="form-floating">
+            <div id="inp" style="margin-top:20px;" class="form-floating fullName _anim-items">
                 <input asp-for="FullName" class="form-control" id="floatingInput" placeholder="FullName">
                 <label for="floatingInput" asp-for="FullName">Полное имя</label>
                 <span asp-validation-for="FullName"></span>
             </div>
-            <div id="inp" style="margin-top:20px;" class="form-floating">
-                <input asp-for="Address" class="form-control" id="floatingInput" placeholder="FullName">
+            <div id="inp" style="margin-top:20px;" class="form-floating address _anim-items">
+                <input asp-for="Address" class="form-control" id="floatingInput" placeholder="Address">
                 <label for="floatingInput" asp-for="Address">Адрес</label>
                 <span asp-validation-for="Address"></span>
             </div>
-            <div id="inp" style="margin-top:20px;" class="form-floating">
-                <input asp-for="PhoneNumber" class="form-control" id="floatingInput" placeholder="FullName">
+            <div id="inp" style="margin-top:20px;" class="form-floating phoneNumber _anim-items">
+                <input asp-for="PhoneNumber" class="form-control" id="floatingInput" placeholder="PhoneNumber">
                 <label for="floatingInput" asp-for="PhoneNumber">Номер телефона</label>
                 <span asp-validation-for="PhoneNumber"></span>
             </div>
-            <div id="inp" style="margin-top:20px;" class="form-floating">
+            <div id="inp" style="margin-top:20px;" class="form-floating password _anim-items">
                 <input asp-for="Password" class="form-control" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword" asp-for="Password">Пароль</label>
                 <span asp-validation-for="Password"></span>
             </div>
-            <div id="inp" style="margin-top:20px;" class="form-floating">
-                <input asp-for="PasswordConfirm" class="form-control" id="floatingPassword" placeholder="Password">
+            <div id="inp" style="margin-top:20px;" class="form-floating repeatPassword _anim-items">
+                <input asp-for="PasswordConfirm" class="form-control" id="floatingPassword" placeholder="RepeatPassword">
                 <label for="floatingPassword" asp-for="PasswordConfirm">Повтор пароля</label>
                 <span asp-validation-for="PasswordConfirm"></span>
             </div>
-            <button style="margin-top:20px;" class="w-25 btn btn-lg btn-primary" type="submit">Регистрация</button>
+            <button style="margin-top:20px;" class="w-25 btn btn-lg btn-dark registration _anim-items" type="submit">Регистрация</button>
         </form>
-    </body>
+    </div>
+    <script src="~/js/LoginReg.js"></script>
+
+</body>
+</html>

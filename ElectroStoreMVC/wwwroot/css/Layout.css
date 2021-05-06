@@ -3,8 +3,11 @@
     margin-top: 100px;
 }
 
-#navbarsExampleDefault{
-    margin-left:25%;
+#navbarsExampleDefault {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
 }
 
 #exitBtn {
@@ -54,7 +57,7 @@
 .wrap.active {
     margin-right: 20%;
     background: #212529;
-    width: 65%;
+    width: 30%;
     padding-left: 25px;
     transition: all 1.5s ease;
     border-radius: 5px;
@@ -71,6 +74,72 @@ input::placeholder {
     color: #fff;
 }
 
+
 #dropdown05:hover{
     cursor:pointer;
+}
+
+
+.inputUnvis {
+    display: none;
+    border: 0;
+    background: transparent;
+    width: 98%;
+    outline: none;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #fff;
+    font-style: italic;
+    transition: all 0.5s 0.8s ease;
+    position: relative;
+    padding-left: 5px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.area{
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 1.3em;
+    color: #fff;
+    letter-spacing: -1px;
+    font-weight: 700;
+    text-transform: uppercase;
+    animation: blur 1.5s ease-out infinite;
+    text-shadow: 0px 0px 5px #fff, 0px 0px 7px #fff;
+}
+
+@keyframes blur {
+    from {
+        text-shadow: 0px 0px 10px #fff, 
+            0px 0px 10px #fff, 
+            0px 0px 25px #fff, 
+            0px 0px 25px #fff, 
+            0px 0px 25px #fff, 
+            0px 0px 25px #fff, 
+            0px 0px 25px #fff, 
+            0px 0px 25px #fff,
+            0px 0px 50px #fff,
+            0px 0px 50px #fff, 
+            0px 0px 50px #7B96B8, 
+            0px 0px 150px #7B96B8;
+    }
+}
+
+
+@media screen and (max-width:767.5px)
+{
+    .inputUnvis {
+        display: inline;
+    }
+    #searchId {
+        display: none;
+    }
+    #navbarsExampleDefault {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: translate(0%, 0%);
+    }
+
 }

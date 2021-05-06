@@ -1,0 +1,45 @@
+﻿
+
+.header{
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0s;
+}
+
+.header._active{
+        transform: translate(0px, 0px);
+        opacity: 1;
+}
+
+.underHeader {
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0s;
+}
+
+.underHeader._active{
+     transform: translate(0px, 0px);
+     opacity: 1;
+     transition: all 0.8s ease 0.4s;
+}
+
+._anim-show {
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0.4s;
+}
+
+._anim-show._active,
+._active ._anim-show {
+    transform: translate(0px, 0px);
+    opacity: 1;
+}
+
+.imgAnim{
+    transform:scale(0);
+    transition: all 0.8s ease 0s;
+}
+
+.imgAnim._active {
+    transform:scale(1);
+}

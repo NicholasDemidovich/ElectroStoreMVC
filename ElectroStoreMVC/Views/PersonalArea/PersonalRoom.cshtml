@@ -1,0 +1,170 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+
+    <link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="~/css/PersonalRoom.css">
+
+</head>
+
+<body>
+    <header id="head" class="secondary"></header>
+
+    <div class="container">
+
+        <div class="row">
+
+            @{
+                <aside class="col-md-4 sidebar sidebar-left">
+                    <div class="row widget">
+                        <div class="col-xs-12">
+                            <h3><p style="text-align: center">@ViewBag.User.UserName</p></h3>
+                        </div>
+                    </div>
+
+                    <div class="row widget">
+                        <div class="col-xs-12">
+                            <p><img style="width: 50%; display: block; margin: 0 auto;" src="~/images/user.png" alt="Product"></p>
+                        </div>
+                    </div>
+
+                </aside>
+
+
+                <article class="col-md-8 maincontent">
+                    <header class="page-header text-center">
+                        <h4 class="page-title">Личный кабинет: @ViewBag.User.UserName</h4>
+                    </header>
+                    <hr class="my-4">
+                    <form id="submitForm" method="post" role="form">
+                        <h6>Ваш номер телефона: @ViewBag.User.PhoneNumber</h6>
+                        <div id="div1" class="">
+                            <a href="#" id="editBtn1" class="btn btn-sm btn-outline-secondary">Изменить</a>
+                            <button id="inp1" class="btn btn-sm btn-outline-secondary dispNone" type="submit">Сохранить</button>
+                        </div>
+                        <div style="width:40%; margin-top:20px;" id="inp2" class="form-floating dispNone">
+                            <input name="PhoneNumber" class="form-control" id="floatingInput" placeholder="">
+                            <label for="floatingInput">Номер телефона</label>
+                        </div>
+                    </form>
+
+                    <hr class="my-4">
+                    <form id="submitForm" method="post" role="form">
+                        <h6>Ваш email: @ViewBag.User.Email</h6>
+                        <div id="div2" class="">
+                            <a href="#" id="editBtn2" class="btn btn-sm btn-outline-secondary">Изменить</a>
+                            <button id="inp3" class="btn btn-sm btn-outline-secondary dispNone" type="submit">Сохранить</button>
+                        </div>
+                        <div style="width:40%; margin-top:20px;" id="inp4" class="form-floating dispNone">
+                            <input name="Email" class="form-control" id="floatingInput" placeholder="">
+                            <label for="floatingInput">Email</label>
+                        </div>
+                    </form>
+
+                    <hr class="my-4">
+                    <form id="submitForm" method="post" role="form">
+                        <h6>Ваш адрес: @ViewBag.User.Address</h6>
+                        <div id="div3" class="">
+                            <a href="#" id="editBtn3" class="btn btn-sm btn-outline-secondary">Изменить</a>
+                            <button id="inp5" class="btn btn-sm btn-outline-secondary dispNone" type="submit">Сохранить</button>
+                        </div>
+                        <div style="width:40%; margin-top:20px;" id="inp6" class="form-floating dispNone">
+                            <input name="Address" class="form-control" id="floatingInput" placeholder="">
+                            <label for="floatingInput">Адрес</label>
+                        </div>
+                    </form>
+
+                    <hr class="my-4">
+
+                    <p style="text-align:center">
+                        <a class="btn btn-secondary"
+                           href="~/AllProducts/MakeUserReview">Оставить отзыв о работе магазина &raquo;</a>
+                    </p>
+
+                    <hr class="my-4">
+
+                    <h5>Ваши предыдущие заказы:</h5>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Кол-во</th>
+                                <th>Название</th>
+                                <th class="text-right">Тип товара</th>
+                                <th class="text-right">Цена товара</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var product in Model.OrderProductViewModels)
+                            {
+                                <tr>
+                                    <td class="text-center">@product.Order.AmountOfProduct</td>
+                                    <td class="text-left">@product.Product.ProductName</td>
+                                    <td class="text-right">@product.Product.ProductType</td>
+                                    <td class="text-right">@product.Product.ProductPrice.ToString("c")</td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </article>
+            }
+        </div>
+        @if (User.Identity.Name.Equals("Admin"))
+        {
+            @if (Model.UserReviewViewModel.Count == 0)
+            {
+                <div class="my-3 p-3 bg-body rounded shadow-sm">
+                    <h6 class="border-bottom pb-2 mb-0">Отзывов о работе магазина еще нет.</h6>
+                    <small class="d-block text-end mt-3">
+                        <a style="color:black" href="#">Отзывы</a>
+                    </small>
+                </div>
+            }
+            else
+            {
+                <div class="my-3 p-3 bg-body rounded shadow-sm">
+                    <h6 class="border-bottom pb-2 mb-0">Отзывы о работе магазина:</h6>
+
+                    @{
+                        foreach (var userRev in Model.UserReviewViewModel)
+                        {
+                            <div class="d-flex text-muted pt-3">
+                                <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#e83e8c"></rect>
+                                <text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+
+                                <p class="pb-3 mb-0 small lh-sm border-bottom">
+                                    <strong class="d-block text-gray-dark">@userRev.UserName</strong>
+                                    @userRev.UserReview.UserReviewContext
+                                </p>
+                            </div>
+                        }
+                    }
+                    <small class="d-block text-end mt-3">
+                        <a style="color:black" href="#">Отзывы</a>
+                    </small>
+                </div>
+            }
+        }
+
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="assets/js/headroom.min.js"></script>
+    <script src="assets/js/jQuery.headroom.min.js"></script>
+    <script src="assets/js/template.js"></script>
+    <script src="~/js/PersonalRoom.js"></script>
+</body>
+</html>

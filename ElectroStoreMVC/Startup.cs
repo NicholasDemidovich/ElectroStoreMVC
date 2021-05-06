@@ -50,14 +50,14 @@ namespace ElectroStoreMVC
             {
                 endpoints.MapControllerRoute(
                     name: "orderList",
-                    pattern: "{controller=AllProducts}/{action=AllProducts}");
+                    pattern: "{controller=AllProducts}/{action=AllProducts}/{id?}");               
             });
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "orderListAdmin",
-                    pattern: "{controller=Admin}/{action=AllProducts}");
+                    pattern: "{controller=Admin}/{action=AllProducts}/{id?}");
             });
 
             app.UseEndpoints(endpoints =>

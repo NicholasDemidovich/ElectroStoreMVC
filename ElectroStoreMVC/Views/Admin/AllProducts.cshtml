@@ -8,59 +8,133 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-
     <link href="carousel.css" rel="stylesheet">
+    <link href="~/css/AllProductAdmin.css" rel="stylesheet">
+    <link href="~/css/DeleteProduct.css" rel="stylesheet">
+
 </head>
 <body>
     <main>
 
+        <div id="myModal" class="modal">
+
+            <div style="margin-top:8%;" class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h5 style=" margin-left: 40%; ">Удаление товара</h5>
+                </div>
+                <div class="modal-body">
+                    <h6>Выбирая удалить вы полностью удалите товар из базы данных.</h6>
+                    <h6>Выбирая удалить на время вы сможете восстановить данный товар позже.</h6>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group">
+                        <a id="permDelete" href="#" class="btn btn-sm btn-outline-secondary">Удалить</a>
+                        <a id="tempDelete" href="#" class="btn btn-sm btn-outline-secondary">Удалить на время</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">Лучшие товары для вас</h1>
-                    <p class="lead text-muted">
-                          Лучшие цены на самые популярные бренды бытовой техники и смартфонов.
-                          Сотруднчивество с мировыми брендами, такими как LG, Apple, Samsung.
+                    <h1 class="fw-light header _anim-items _anim-no-hide">Лучшие товары для вас</h1>
+                    <p class="lead text-muted underHeader _anim-items _anim-no-hide">
+                        Лучшие цены на самые популярные бренды бытовой техники и смартфонов.
+                        Сотруднчивество с мировыми брендами, такими как LG, Apple, Samsung.
                     </p>
-                    <p>
-                        <a href="~/Admin/AddProduct" class="btn btn-primary my-2">Добавить товар</a>
+                    <p class="underHeader _anim-items _anim-no-hide">
+                        <a href="~/Admin/AddProduct" class="btn btn-dark my-2">Добавить товар</a>
                     </p>
                 </div>
             </div>
         </section>
-
         <div class="album py-5 bg-light">
-            <div class="container">
-                <div class="album py-5 bg-light">
-                    <div class="container">
-                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-                            @{
-                                foreach (var product in Model)
-                                {
-                                    <div class="col">
-                                        <div class="card shadow-sm">
-                                            <img class="img-thumbnail" src="@product.ProductImage" alt="@product.ProductName">
-                                            <div class="card-body">
-                                                <h2>@product.ProductName</h2>
-                                                <p class="card-text">@product.ProductDescription</p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                                    </div>
-                                                    <small class="text-muted">@product.ProductPrice.ToString("c")</small>
-                                                </div>
-                                            </div>
 
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                    @{
+                        foreach (var product in Model)
+                        {
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <div style="margin-left:92%; margin-bottom:2%; margin-top:2%;">
+                                        <a class="deleteBtn" name="myBtn" id="@product.ProductId" style="color:black">
+                                            <svg id="imgDelete" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <img class="img-thumbnail" src="@product.ProductImage" alt="@product.ProductName">
+                                    <div class="card-body">
+                                        <h2>@product.ProductName</h2>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group">
+                                                <a href="~/AllProducts/ProductPage/?id=@product.ProductId" class="btn btn-sm btn-outline-secondary">Перейти</a>
+                                                <a href="~/Admin/EditProductPage?id=@product.ProductId" class="btn btn-sm btn-outline-secondary">Изменить</a>
+                                            </div>
+                                            <small class="text-muted">@product.ProductPrice.ToString("c")</small>
                                         </div>
                                     </div>
-                                }
-                            }
-                        </div>
-                    </div>
+
+                                </div>
+                            </div>
+                        }
+                    }
                 </div>
+            </div>
+            <div id="mainDivPagesId" style="position:relative; margin-top:5%;">
+                <div id="pagesDivId">
+                    <a class="nav-link dropdown-toggle" id="pages" data-bs-toggle="dropdown" aria-expanded="false">Страница</a>
+                    <ul id="ulDropdownMenuIdPages" class="dropdown-menu" aria-labelledby="dropdown05">
+                        @{
+                            for (int i = 1; i <= ViewBag.PagesCount; i++)
+                            {
+                                <li><a class="dropdown-item" href="~/Admin/AllProducts/?id=@i">@i</a></li>
+                            }
+                        }
+                    </ul>
+                </div>
+                @{
+                    if (Convert.ToInt32(@Context.Request.Query["id"]) > 1)
+                    {
+                        int id = Convert.ToInt32(@Context.Request.Query["id"]) - 1;
+                        <div id="pagesPrevDivId">
+                            <a style="color:black;" href="~/Admin/AllProducts/?id=@id" id="pagesPrev">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                                    <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                                </svg>
+                            </a>
+                        </div>
+                    }
+                }
+                @{
+                    if (Convert.ToInt32(@Context.Request.Query["id"]) < ViewBag.PagesCount)
+                    {
+                        int id = Convert.ToInt32(@Context.Request.Query["id"]) + 1;
+                        <div id="pagesNextDivId">
+                            <a style="color:black;" href="~/Admin/AllProducts/?id=@id" id="pagesNext">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
+                                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                            </a>
+                        </div>
+                    }
+                }
             </div>
         </div>
 
     </main>
+
+    <script src="~/js/AllProductsClient.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="~/js/DeleteProduct.js"></script>
 </body>
 </html>

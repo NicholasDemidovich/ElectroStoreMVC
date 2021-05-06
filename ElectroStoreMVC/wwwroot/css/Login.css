@@ -1,0 +1,71 @@
+﻿.header {
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0s;
+}
+
+.header._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+}
+
+.loginField {
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0s;
+}
+
+.loginField._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+     transition: all 0.8s ease 0.1s;
+}
+
+.passField {
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0s;
+}
+
+.passField._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+    transition: all 0.8s ease 0.2s;
+}
+
+.rememberField {
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0s;
+}
+
+.rememberField._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+    transition: all 0.8s ease 0.3s;
+}
+
+.loginBtn {
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0s;
+}
+
+.loginBtn._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+    transition: all 0.8s ease 0.4s;
+}
+
+
+._anim-show {
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0.4s;
+}
+
+._anim-show._active,
+._active ._anim-show {
+    transform: translate(0px, 0px);
+    opacity: 1;
+}

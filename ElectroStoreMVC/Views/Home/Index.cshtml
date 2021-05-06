@@ -15,10 +15,8 @@
 
 
 
-    <!-- Bootstrap core CSS -->
     <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-    <!-- Favicons -->
     <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
@@ -28,51 +26,43 @@
     <meta name="theme-color" content="#7952b3">
 
 
-    <!-- Custom styles for this template -->
     <link href="carousel.css" rel="stylesheet">
+    <link href="~/css/Index.css" rel="stylesheet">
 </head>
 <body>
-
-
     <main>
-
-        <!-- Marketing messaging and featurettes
-        ================================================== -->
-        <!-- Wrap the rest of the page in another container to center all the content. -->
-
         <div class="container marketing">
 
-            <!-- Three columns of text below the carousel -->
             <div style="padding-top:5%;" class="row">
                 <div class="col-lg-4">
-                    <img src="~/images/iphone11-black-select-2019.png" style="width:50%;display:block;margin:0 auto;" alt="Айфон 11">
+                    <img class="imgAnim _anim-items _anim-no-hide" src="~/images/iphone11-black-select-2019.png" style="width:50%;display:block;margin:0 auto;" alt="Айфон 11">
 
-                    <h2 style="text-align:center;">Электроника</h2>
-                    <p style="text-align:justify;">
-                        Современные смартфоны, качественная ТВ и бытовая видеотехника является отличным 
+                    <h2 class="header _anim-items _anim-no-hide" style="text-align:center;">Смартфоны</h2>
+                    <p class="underHeader _anim-items _anim-no-hide" style="text-align:justify;">
+                        Современные смартфоны, качественная ТВ и бытовая видеотехника является отличным
                         способом для отдыха и увлекательного времяпрепровождения для всей семьи.
                     </p>
-                    <p><a class="btn btn-secondary" href="#">Перейти &raquo;</a></p>
+                    <p><a class="btn btn-secondary underHeader _anim-items _anim-no-hide" href="~/AllProducts/SomeProducts?items=2&items=1">Перейти &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
-                    <img src="~/images/good_img_87200c74-64f6-11ea-80c7-005056840c70_600.jpg" style="width:60%;display:block;margin:0 auto;" alt="Айфон 11">
+                    <img class="imgAnim _anim-items _anim-no-hide" src="~/images/good_img_87200c74-64f6-11ea-80c7-005056840c70_600.jpg" style="width:60%;display:block;margin:0 auto;" alt="Айфон 11">
 
-                    <h2 style="text-align:center;">Бытовая техника</h2>
-                    <p style="text-align:justify;">
+                    <h2 class="header _anim-items _anim-no-hide" style="text-align:center;">Бытовая техника</h2>
+                    <p class="underHeader _anim-items _anim-no-hide" style="text-align:justify;">
                         В нашем интернет-магазине представлен большой ассортимент
                         качественной мелкой и крупной бытовой техники на любой вкус.
                     </p>
-                    <p><a class="btn btn-secondary" href="#">Перейти &raquo;</a></p>
+                    <p><a class="btn btn-secondary underHeader _anim-items _anim-no-hide" href="~/AllProducts/SomeProducts?items=4&items=1">Перейти &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
-                    <img src="~/images/mydc2ru-a-a2338-macbook-air-13-m1-2020-silver-noutbuk-apple-1_600.jpg" style="width:70%;display:block;margin:0 auto;" alt="Айфон 11">
+                    <img class="imgAnim _anim-items _anim-no-hide" src="~/images/mydc2ru-a-a2338-macbook-air-13-m1-2020-silver-noutbuk-apple-1_600.jpg" style="width:70%;display:block;margin:0 auto;" alt="Айфон 11">
 
-                    <h2 style="text-align:center;">Компьютеры</h2>
-                    <p style="text-align:justify;">
+                    <h2 class="header _anim-items _anim-no-hide" style="text-align:center;">Компьютеры</h2>
+                    <p class="underHeader _anim-items _anim-no-hide" style="text-align:justify;">
                         Наш интернет-магазин предлагает широчайший ассортимент компьютерной техники в
                         Минске с возможностью доставки по Беларуси.
                     </p>
-                    <p><a class="btn btn-secondary" href="#">Перейти &raquo;</a></p>
+                    <p><a class="btn btn-secondary underHeader _anim-items _anim-no-hide" href="~/AllProducts/SomeProducts?items=3&items=1">Перейти &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
             <!-- START THE FEATURETTES -->
@@ -81,16 +71,18 @@
 
             <div class="row featurette">
                 <div class="col-md-7">
-                    <h2 class="featurette-heading">Стиральные машины нового поколоения. <span class="text-muted">Технология AI DD.</span></h2>
-                    <p class="lead">
-                        Усовершенствованный двигатель с искусственным интеллектом позволяет с точностью настроить режимы стирки,
-                        автоматически определяя вес белья и с точностью оценивая мягкость ткани.
-                        В память стиральной машины заложена база данных из 20 000 возможных сочетаний тканей.
-                    </p>
-                    <p><a class="btn btn-secondary" href="#">Перейти &raquo;</a></p>
+                    <h2 class="featurette-heading header _anim-items">Стиральные машины нового поколоения. <span class="text-muted">Технология AI DD.</span></h2>
+                    <div class="_anim-items">
+                        <p class="lead _anim-show">
+                            Усовершенствованный двигатель с искусственным интеллектом позволяет с точностью настроить режимы стирки,
+                            автоматически определяя вес белья и с точностью оценивая мягкость ткани.
+                            В память стиральной машины заложена база данных из 20 000 возможных сочетаний тканей.
+                        </p>
+                    </div>
+                    <p><a class="btn btn-secondary _anim-items _anim-show" href="~/AllProducts/ProductPage/?id=28">Перейти &raquo;</a></p>
                 </div>
-                <div class="col-md-5">
-                    <img src="~/images/f2v5hs0w-stiralnaya-mashina-lg-4_600.jpg"  style="width:90%;" alt="Стиральная машина">
+                <div class="col-md-5 imgAnim _anim-items">
+                    <img src="~/images/f2v5hs0w-stiralnaya-mashina-lg-4_600.jpg" style="width:90%;" alt="Стиральная машина">
                 </div>
             </div>
 
@@ -98,16 +90,18 @@
 
             <div class="row featurette">
                 <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading">Холодильник SAMSUNG RB37A5291B1/WT. <span class="text-muted">Рассрочка 12 мес.</span></h2>
-                    <p class="lead">
-                        Храните больше продуктов с помощью технологии SpaceMax™,
-                        которая позволяет добиться большего полезного внутреннего объема*,
-                        благодаря тонким стенкам с теплоизоляцией, при этом не снижая энергоэффективность холодильника.
-                    </p>
-                    <p><a class="btn btn-secondary" href="#">Перейти &raquo;</a></p>
+                    <h2 class="featurette-heading header _anim-items">Холодильник SAMSUNG RB37A5291B1/WT. <span class="text-muted">Рассрочка 12 мес.</span></h2>
+                    <div class="_anim-items">
+                        <p class="lead _anim-show">
+                            Храните больше продуктов с помощью технологии SpaceMax™,
+                            которая позволяет добиться большего полезного внутреннего объема*,
+                            благодаря тонким стенкам с теплоизоляцией, при этом не снижая энергоэффективность холодильника.
+                        </p>
+                    </div>
+                    <p><a class="btn btn-secondary _anim-items _anim-show" href="~/AllProducts/ProductPage/?id=30">Перейти &raquo;</a></p>
                 </div>
-                <div class="col-md-5 order-md-1">
-                    <img src="~/images/rb37a5291b1wt_12.jpg" style="width:70%;"alt="Холодильник">
+                <div class="col-md-5 order-md-1 imgAnim _anim-items">
+                    <img src="~/images/rb37a5291b1wt_12.jpg" style="width:70%;" alt="Холодильник">
                 </div>
             </div>
 
@@ -115,31 +109,29 @@
 
             <div class="row featurette">
                 <div class="col-md-7">
-                    <h2 class="featurette-heading">Телевизор LG 75NANO906NA. <span class="text-muted">Особая технология NanoCell.</span></h2>
-                    <p class="lead">
-                        Чистые цвета теперь на ультрабольшом экране.
-                        С большим экраном телевизора NanoCell ваш теледосуг стал как никогда интересным.
-                        Чистые цвета NanoCell создают эффектную картинку на ультрабольшом экране.
-                    </p>
-                    <p><a class="btn btn-secondary" href="#">Перейти &raquo;</a></p>
+                    <h2 class="featurette-heading header _anim-items">Телевизор LG 75NANO906NA. <span class="text-muted">Особая технология NanoCell.</span></h2>
+                    <div class="_anim-items">
+                        <p class="lead _anim-show">
+                            Чистые цвета теперь на ультрабольшом экране.
+                            С большим экраном телевизора NanoCell ваш теледосуг стал как никогда интересным.
+                            Чистые цвета NanoCell создают эффектную картинку на ультрабольшом экране.
+                        </p>
+                    </div>
+                    <p><a class="btn btn-secondary _anim-items _anim-show" href="~/AllProducts/ProductPage/?id=29">Перейти &raquo;</a></p>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5 imgAnim _anim-items">
                     <img src="~/images/medium03.jpg" style="width:100%;" alt="Телевизор">
                 </div>
+
+                <hr class="featurette-divider">
+
             </div>
-
-            <hr class="featurette-divider">
-
-
-            <!-- /END THE FEATURETTES -->
-
-        </div><!-- /.container -->
-    
+        </div>
     </main>
 
 
     <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-
+    <script src="~/js/Index.js"></script>
 
 </body>
 </html>

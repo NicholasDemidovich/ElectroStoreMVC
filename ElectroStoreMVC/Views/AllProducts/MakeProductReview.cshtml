@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "D&L, Отзыв";
+}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container">
+        <main>
+            <div class="py-5 text-center">
+                <h2>Оставьте ваш отзыв здесь</h2>
+            </div>
+            <div class="row g-5">
+
+                <div>
+                    <form id="submitForm" onsubmit="return valid();" method="post" data-ajax="true"
+                          data-ajax-success="ajaxSuccessFunc" data-ajax-failure="ajaxFailureFunc"
+                          class="needs-validation" role="form">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="ProductReviewContext" class="form-label">Оставляя отзыв, вы помогаете нам улучишь качество предоставляемых вам услуг.</label>
+                                <textarea name="ProductReviewContext" type="text" class="form-control" placeholder="Ваш отзыв" required></textarea>
+                            </div>
+                            <div class="invalid-feedback">
+                                Данное поле обязательное для заполнения.
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <div>
+                            <button id="submitBtn" class="w-100 btn btn-dark btn-lg" type="submit">Оставить отзыв на товар</button>
+                            <div id="alertinfo" alert-hide="true" class="alert-info" style="text-align:center;height:5%;font-size:14pt;" role="alert">
+                            </div>
+                            <div id="alertinfoFail" alert-hide="false" class="alert-warning" style="text-align:center;height:5%;font-size:14pt;" role="alert">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    @section scripts {
+        <script>
+            function ajaxSuccessFunc() {
+                $("div#alertinfo").delay(200).show(2000);
+                $("div#alertinfo").text("Отзыв добавлен успешно.");
+                $(".form-control").val('');
+                $("div#alertinfo").delay(2200).hide(3000);
+            }
+            function ajaxFailureFunc() {
+                $("div#alertinfoFail").delay(1200).show(2000);
+                $("div#alertinfoFail").text("Добавление отзыва не выполнено.");
+                $(".form-control").val('');
+                $("div#alertinfoFail").delay(2200).hide(3000);
+            }
+        </script>
+    }
+</body>
+</html>

@@ -18,7 +18,7 @@ namespace ElectroStoreMVC.Controllers
         }
         [HttpGet]
         public IActionResult Register()
-        {
+        {            
             return View();
         }
         [HttpPost]

@@ -1,0 +1,102 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+
+    <link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+
+<body>
+    <header id="head" class="secondary"></header>
+
+    <div class="container">
+
+        <div class="row">
+
+            @{
+                <aside class="col-md-4 sidebar sidebar-left">
+                    <div class="row widget">
+                        <div class="col-xs-12">
+                            <h3><p style="text-align: center">@Model.Product.ProductType</p></h3>
+                        </div>
+                    </div>
+
+                    <div class="row widget">
+                        <div class="col-xs-12">
+                            <h4 style="text-align: center">@Model.Product.ProductName</h4>
+                            <p><img style="width: 80%; display: block; margin: 0 auto;" src="@Model.Product.ProductImage" alt="Product"></p>
+                        </div>
+                    </div>
+
+                </aside>
+
+
+                <article class="col-md-8 maincontent">
+                    <header class="page-header">
+                        <h4 class="page-title">Описание и характеристики @Model.Product.ProductName</h4>
+                    </header>
+                    <p>@Model.Product.ProductDescription</p>
+                    <h6>В наличии осталось: @Model.Product.ProductCount</h6>
+                    <h6>Стоимость модели: @Model.Product.ProductPrice.ToString("c")</h6>
+
+                    <hr class="my-4">
+
+                    <p style="text-align:center">
+                        <a class="btn btn-secondary" href="~/AllProducts/CheckOutPage/?id=@Model.Product.ProductId">Оформить заказ &raquo;</a>
+                        <a class="btn btn-secondary" href="~/AllProducts/Cart/?id=@Model.Product.ProductId">Добавить в корзину &raquo;</a>
+                        <a class="btn btn-secondary" href="~/AllProducts/MakeProductReview/?id=@Model.Product.ProductId">Оставить отзыв &raquo;</a>
+                    </p>
+                </article>
+            }
+        </div>
+
+        @if (Model.ProductReviews.Count == 0)
+        {
+            <div class="my-3 p-3 bg-body rounded shadow-sm">
+                <h6 class="border-bottom pb-2 mb-0">Отзывов о товаре еще нет.</h6>
+                <small class="d-block text-end mt-3">
+                    <a style="color:black" href="#">Отзывы</a>
+                </small>
+            </div>
+        }
+        else
+        {
+            <div class="my-3 p-3 bg-body rounded shadow-sm">
+                <h6 class="border-bottom pb-2 mb-0">Отзывы о данном товаре:</h6>
+
+                @{
+                    foreach (var userRev in Model.ProductReviews)
+                    {
+                        <div class="d-flex text-muted pt-3">
+                            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"></rect><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
+
+                            <p class="pb-3 mb-0 small lh-sm border-bottom">
+                                <strong class="d-block text-gray-dark">@userRev.UserName</strong>
+                                @userRev.ProductReview.ProductReviewContext
+                            </p>
+                        </div>
+                    }
+                }
+                <small class="d-block text-end mt-3">
+                    <a style="color:black" href="#">Отзывы</a>
+                </small>
+            </div>
+        }
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="assets/js/headroom.min.js"></script>
+    <script src="assets/js/jQuery.headroom.min.js"></script>
+    <script src="assets/js/template.js"></script>
+</body>
+</html>
